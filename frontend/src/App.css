@@ -1,0 +1,44 @@
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-board-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 70vw;
+  height: 50vw;
+}
+
+.played-cards-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+  width: 300px;
+  margin-bottom: auto;
+  margin-top: 10%;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
