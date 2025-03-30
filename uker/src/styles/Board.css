@@ -1,0 +1,17 @@
+
+.board-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+
+.board {
+    width: 55%;
+    aspect-ratio: 6/4;
+    border-radius: 10rem;
+    border: 2px solid black;
+    background-color: #630;
+}
