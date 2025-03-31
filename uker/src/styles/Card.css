@@ -2,15 +2,15 @@
 .card {
     height: 100%;
     aspect-ratio: 63/88;
-    background-color: black;
-    border: 2px solid red;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem;
 }
 
 .card img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
