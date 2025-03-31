@@ -1,21 +1,17 @@
 
 .board-wrapper {
-    height: 100vh;
     width: 100vw;
-    display: flex;
+    height: 100vh;
+    border: 2px solid red;
+    display: flex;    
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
 }
 
 .board {
-    width: 55%;
+    height: 70%;
     aspect-ratio: 6/4;
+    border: 2px solid red;
     border-radius: 10rem;
-    border: 2px solid black;
     background-color: #630;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
