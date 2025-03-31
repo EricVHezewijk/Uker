@@ -14,4 +14,8 @@
     border-radius: 10rem;
     border: 2px solid black;
     background-color: #630;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
