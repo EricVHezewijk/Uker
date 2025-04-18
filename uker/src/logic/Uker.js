@@ -5,13 +5,25 @@ export default class Uker {
         this.deck = this.createDeck();
         this.players = [];
         this.dealerIndex = 0;
+        this.onPlayersChanged = null; // Callback for when players change
+        this.onPlayerLimitExceeded = null; // Callback for when player limit is exceeded
     }
 
-    addPlayer(player) {
-        if (this.players.length < 4) {
-            this.players.push(player);
+    setPlayersChangedCallback(callback) {
+        this.onPlayersChanged = callback;
+    }
+
+    addPlayer(name) {
+        const newPlayer = new Player(name);
+        this.players.push(newPlayer);
+
+        if (this.players.length <= 4) {
+            if (this.onPlayersChanged) {
+                this.onPlayersChanged([...this.players]);
+                console.log(`${name} has joined the game.`);
+            }
         } else {
-            console.log('Maximum number of players reached.');
+            console.log("Maximum number of players reached. Cannot add more players.");
         }
     }
 
@@ -25,7 +37,7 @@ export default class Uker {
                 deck.push({ suit, rank });
             }
         }
-
+        console.log("Deck has been created.");
         return deck;
     }
 
@@ -34,6 +46,7 @@ export default class Uker {
             const j = Math.floor(Math.random() * (i + 1));
             [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
         }
+        console.log("Deck has been shuffled.");
     }
 
     dealToPlayer(numCards, player) {
@@ -44,6 +57,7 @@ export default class Uker {
             }
         }
         player.setHand(hand);
+        console.log(`${player.name} has been dealt ${numCards} cards.`);
     }
 
     printHand(player) {
@@ -53,10 +67,3 @@ export default class Uker {
         });
     }
 }
-
-// const player1 = new Player('Player 1');
-// const game = new Uker();
-
-// game.shuffleDeck();
-// game.dealToPlayer(5, player1);
-// game.printHand(player1);
