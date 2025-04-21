@@ -5,6 +5,7 @@ export default class Uker {
         this.deck = this.createDeck();
         this.players = [];
         this.dealerIndex = 0;
+        this.trumpCard = null;
         this.onPlayersChanged = null; // Callback for when players change
         this.onPlayerLimitExceeded = null; // Callback for when player limit is exceeded
     }
@@ -24,20 +25,27 @@ export default class Uker {
             }
         } else {
             console.log("Maximum number of players reached. Cannot add more players.");
+            // Should add implementation to display a nice UI rendered message to the user
+        
         }
     }
 
     createDeck() {
-        const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-        const ranks = ['9', '10', 'J', 'Q', 'K', 'A'];
+        const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+        const ranks = ['9', '10', 'jack', 'queen', 'king', 'ace'];
         const deck = [];
 
         for (let suit of suits) {
             for (let rank of ranks) {
-                deck.push({ suit, rank });
+                deck.push({
+                    suit, 
+                    rank,
+                    img: `/cardImages/${rank}_of_${suit}.png`
+                });
             }
         }
         console.log("Deck has been created.");
+        console.log(this.deck);
         return deck;
     }
 
@@ -49,21 +57,25 @@ export default class Uker {
         console.log("Deck has been shuffled.");
     }
 
-    dealToPlayer(numCards, player) {
-        const hand = [];
-        for (let i = 0; i < numCards; i++) {
-            if (this.deck.length > 0) {
-                hand.push(this.deck.pop());
+    dealToPlayers() {
+        for (const player of this.players) {
+            const hand = [];
+            for (let i = 0; i < 5; i++) {
+                if (this.deck.length > 0) {
+                    hand.push(this.deck.pop());
+                }
             }
+            player.setHand(hand);
         }
-        player.setHand(hand);
-        console.log(`${player.name} has been dealt ${numCards} cards.`);
+
+        this.trumpCard = this.deck.pop(); // Set the trump suit to the last card in the deck
+        console.log(`Trump suit is ${this.trumpCard.suit}.`);
     }
 
     printHand(player) {
         console.log(`${player.name}'s hand:`);
         player.hand.forEach(card => {
-            console.log(`${card.rank} of ${card.suit}`);
+            console.log(`${player} of ${card.suit}`);
         });
     }
 }
