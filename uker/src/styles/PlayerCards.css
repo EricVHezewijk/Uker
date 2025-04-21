@@ -1,0 +1,28 @@
+.player-cards-wrapper {
+    max-width: 60%;
+    max-width: 60%;
+    margin-top: auto;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.card-wrapper {
+    height: 100%;
+    aspect-ratio: 63/88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+}
+
+.card-wrapper img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.1);
+}
