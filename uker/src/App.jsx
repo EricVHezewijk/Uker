@@ -1,12 +1,12 @@
 import './App.css'
-import Controller from './components/Controller'
 import React from 'react'
+import Board from './components/Board'
 
 function App() {
 
   return (
     <>
-      <Controller />
+      <Board />
     </>
   )
 }

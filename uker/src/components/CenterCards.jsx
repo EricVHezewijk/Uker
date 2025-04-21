@@ -8,7 +8,7 @@ function CenterCards({trumpCard}) {
         
       </div>
       <div className="trump-suit-wrapper">
-
+        <img src={trumpCard.img} alt={'/cardImages/back.png'}/>
       </div>
     </div>
   )
