@@ -1,21 +1,23 @@
 .center-cards-wrapper {
-    max-width: 60%;
-    max-width: 60%;
     margin-top: auto;
-    margin-bottom: 5%;
+    display: flex;
+    width: 15vw;
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    border: 2px solid red;
+    align-items: center;
 }
 
 .played-cards-wrapper {
-    height: 100%;
+    width: 50%;
     aspect-ratio: 63/88;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.2s ease-in-out;
+}
+
+.trump-suit-wrapper {
+    width: 50%;
 }
 
 .center-cards-wrapper img {
